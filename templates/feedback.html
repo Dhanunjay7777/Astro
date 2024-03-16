@@ -1,0 +1,107 @@
+{% block content%}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Create Feedback</title>
+
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Form styling -->
+  <style>
+      body {
+            background-color: lightblue;
+        }
+    .form-container {
+     background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+
+    .form-container h1 {
+      color: #333;
+    }
+
+    .form-container label {
+      font-weight: bold;
+    }
+
+    .form-container input,
+    .form-container textarea {
+    background-color: transparent;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid;
+      width: 100%;
+
+    }
+
+    .form-container button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #0062cc;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  {% include 'navibar1.html' %}
+
+  <div class="container mt-5">
+
+    <div class="form-container">
+
+      <h1 class="mb-4">Create Feedback</h1>
+
+      <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_query">Query:</label>
+                {{ form.query }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+
+</body>
+
+{% endblock %}
+
+</html>
+
+<script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings =
+            {"appId":"35d819c42b50559137c65e723b9a3c583","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>

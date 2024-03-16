@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% include 'navibar1.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .container {
+            margin-top: 5px;
+        }
+
+        .card {
+            border: 100px;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        #sign-result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #horoscope-result {
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-center">Astrological Sign Prediction</h1>
+                        <form id="sign-form" class="text-center">
+                            <div class="form-group">
+                                <label for="birthdate">Enter your birthdate (dd-mm-yyyy):</label>
+                                <input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="dd-mm-yyyy">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="predictSign()">Predict Sign</button>
+                        </form>
+                        <p id="sign-result" class="mt-3"></p>
+                        <p id="horoscope-result"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function predictSign() {
+            var birthdateInput = document.getElementById("birthdate").value;
+            var birthdateParts = birthdateInput.split("-");
+
+            if (birthdateParts.length === 3) {
+                var day = parseInt(birthdateParts[0]);
+                var month = parseInt(birthdateParts[1]);
+
+                var astro_sign;
+
+                if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) {
+                    astro_sign = 'Capricorn';
+                } else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) {
+                    astro_sign = 'Aquarius';
+                } else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+                    astro_sign = 'Pisces';
+                } else if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) {
+                    astro_sign = 'Aries';
+                } else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) {
+                    astro_sign = 'Taurus';
+                } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+                    astro_sign = 'Gemini';
+                } else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
+                    astro_sign = 'Cancer';
+                } else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
+                    astro_sign = 'Leo';
+                } else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
+                    astro_sign = 'Virgo';
+                } else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) {
+                    astro_sign = 'Libra';
+                } else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) {
+                    astro_sign = 'Scorpio';
+                } else {
+                    astro_sign = 'Sagittarius';
+                }
+                document.getElementById("sign-result").innerHTML = "Your Astrological sign is: " + astro_sign;
+
+                // Display horoscope based on the astrological sign
+                displayHoroscope(astro_sign);
+            } else {
+                document.getElementById("sign-result").innerHTML = "Please enter a valid birthdate in the format dd-mm-yyyy.";
+            }
+        }
+
+        function displayHoroscope(sign) {
+            var horoscopes = {
+              'Aries': 'Aries, your assertiveness shines today. Trust your instincts, seize opportunities, and lead with confidence. Don\'t fear challenges; they\'re stepping stones to success. Your dynamic energy inspires others. Prioritize self-care to maintain your vigor. A new adventure awaits, so embark fearlessly. Be the visionary leader you were born to be.',
+    'Taurus': 'Taurus, stability is your guiding star. Embrace your practical nature to nurture relationships and financial security. Pamper yourself; you\'ve earned it. Slow and steady wins the race in your endeavors. Enjoy the tranquility of your surroundings. Your loyalty and sensuality draw others in. Trust your resilience to overcome any obstacle.',
+    'Gemini': 'Gemini, your curiosity fuels engaging conversations. Adaptability is your superpower; ride the winds of change. Social connections are the key to your joy. Embrace variety in your pursuits and hobbies. Share your wit and knowledge; others will be captivated. Explore new horizons with an open heart. Let your inner storyteller shine.',
+    'Cancer': 'Cancer, your nurturing spirit is a source of comfort. Emotional intelligence guides your relationships. Connect with loved ones on a deeper level. Trust your intuition; it rarely leads you astray. Dive into creative endeavors that soothe your soul. Provide a listening ear and a caring heart. Your empathy creates profound connections.',
+    'Leo': 'Leo, you\'re the star of your show. Let your charisma and creativity dazzle the world. Radiate self-confidence in every endeavor. Seek admiration, and it will find you. Embrace a bold and dramatic approach. Express your passions with unwavering enthusiasm. Remember, you\'re destined for greatness.',
+    'Virgo': 'Virgo, precision is your strength. Pay attention to detail in your work and personal life. Organization is your ally, so keep everything in order. Your critical thinking helps solve complex issues. Maintain your health with a balanced routine. Your reliability is cherished by all who know you.',
+    'Libra': 'Libra, balance and harmony are your calling. Seek fairness in all you do. Your diplomacy and charm mend any discord. Create beauty in the world around you. Mediation is your gift, so use it wisely. Your elegance and grace shine through in every circumstance.',
+    'Scorpio': 'Scorpio, your intensity is magnetic. Dive into the depths of your passions and uncover hidden truths. Transformation is your eternal companion. Embrace the shadows as well as the light. Your willpower is unbreakable, making you unstoppable. Share your profound insights; they\'re your greatest asset.',
+    'Sagittarius': 'Sagittarius, adventure beckons. Your optimism fuels exciting explorations. Seek new horizons and expand your knowledge. Freedom is your driving force. Trust in your lucky stars to guide you. Your spontaneity and openness to the unknown lead to thrilling discoveries.',
+    'Capricorn': 'Capricorn, discipline is your path to success. Set ambitious goals and approach them with determination. Your leadership qualities shine bright. Patiently climb the ladder of achievement. Resilience and responsibility define your character. Trust that your hard work will be rewarded.',
+    'Aquarius': 'Aquarius, your innovative thinking is your power. Embrace your unique perspective and inspire change. Connect with like-minded individuals and envision a better world. The future is in your hands; be the visionary. Your humanitarian spirit touches hearts deeply.',
+    'Pisces': 'Pisces, your compassion knows no bounds. Be a source of solace and support for those in need. Intuition guides your empathetic nature. Let your creativity and imagination flow freely. Art and spirituality enrich your soul. Trust your inner wisdom; it is your guiding light.'
+};
+
+
+            var horoscopeResult = document.getElementById("horoscope-result");
+            horoscopeResult.innerText = horoscopes[sign];
+        }
+    </script>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings =
+            {"appId":"35d819c42b50559137c65e723b9a3c583","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>

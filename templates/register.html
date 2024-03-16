@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .bold-label {
+    font-weight: bold;
+}
+  .btn-submit {
+      background-color: #5A6ADC;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-clear {
+      background-color: #5A6ADC;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh; /* Ensure the form container takes up at least the full viewport height */
+    }
+    .form-box {
+        background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value to control transparency (0 is fully transparent, 1 is fully opaque) */
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+        width: 80%; /* Adjust this value to change the width of the form */
+    }
+    .form-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* This will center the text and input fields horizontally */
+    }
+    /* Adjust the background image to fit the window */
+    body {
+        background-image: url('{% static 'images/pic.jpg' %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Ensures the background image stays fixed while scrolling */
+    }
+    .footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+    }
+
+    .btn-submit {
+      background-color: #5A6ADC;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-clear {
+      background-color: #5A6ADC;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background-color: #72DC5A;
+    }
+
+    .btn-clear:hover {
+      background-color: #C70039;
+    }
+</style>
+
+<div class="form-container">
+    <div class="form-box">
+        <h2 align="center" style="color:red">{{msg}}</h2><br><br>
+        <div class="container form-content">
+            <br>
+            <form method="post">
+                <h1>Registration Page</h1><br>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <center>
+          <input type="submit" value="Submit" class="btn-submit">
+          <input type="reset" value="Clear" class="btn-clear"><br><br>
+                </center><br>
+                <p><U><strong>Already have an account</strong></U>&nbsp;&nbsp;<a href="{% url 'login' %}">Login here</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
+<script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings =
+            {"appId":"35d819c42b50559137c65e723b9a3c583","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>
+{% endblock %}

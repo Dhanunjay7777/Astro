@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+{% include 'navibar1.html' %}
+<html>
+<head>
+  <title>Astrology Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Stylesheet -->
+  <style>
+    /* Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    body{
+          background-color: lightblue;
+}
+
+    .header {
+      padding: 20px 0;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg') no-repeat center / cover;
+    }
+
+    .heading {
+      font-weight: 700;
+      font-size: 3rem;
+    }
+
+    .subheading {
+      font-size: 1.5rem;
+    }
+
+    .text-bright {
+      color: #fff;
+    }
+
+    .icon-box {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+      margin-bottom: 20px; /* Add margin to create spacing between cards */
+    }
+
+    .icon-box:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Button Styles */
+.btn-read {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn-read:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
+}
+
+    .sign-icon-big {
+      font-size: 2.5rem;
+      color: #007bff;
+    }
+
+    .sign-name-big {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Astrology Content -->
+  <section class="p-5">
+    <div class="container">
+      <!-- Aries Section -->
+      <div class="icon-box">
+        <p class="sign-icon-big">♈</p>
+        <h5 class="sign-name-big">Aries</h5>
+        <p>Aries are passionate, motivated, and confident leaders.</p>
+        <button onclick="showMore('aries')" class="btn-read">Read More</button>
+        <div id="aries" class="more-info" style="display:none">
+          <p>Aries are the trailblazers of the zodiac. They are bundles of energy and vitality, often the life of the party and the first to start new projects. Aries goes after what they want and embraces the thrill of the chase.</p>
+        </div>
+      </div>
+
+      <!-- Taurus Section -->
+     <div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">♉</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Taurus</h5> <!-- Added a class sign-name-big -->
+    <p>Taurus individuals are known for their determination and practicality.</p>
+    <button onclick="showMore('taurus')" class="btn-read">Read More</button>
+    <div id="taurus" class="more-info" style="display:none">
+      <p>Taurus is an earth sign ruled by Venus, which makes them lovers of beauty and comfort. They are reliable, patient, and hardworking. Taurus individuals are known for their determination and practicality, making them great at handling responsibilities and building stable lives.</p>
+    </div>
+  </div>
+</div>
+
+      <!-- Continue this pattern for other zodiac signs... -->
+      <div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9802;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Gemini</h5> <!-- Added a class sign-name-big -->
+    <p>Gemini individuals are curious and adaptable.</p>
+    <button onclick="showMore('gemini')" class="btn-read">Read More</button>
+    <div id="gemini" class="more-info" style="display:none">
+      <p>Gemini is an air sign ruled by Mercury, which gives them a keen intellect and a love for communication. They are curious and adaptable, making them great at connecting with others and exploring new ideas.</p>
+    </div>
+  </div>
+</div>
+
+
+ <!-- Cancer Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9803;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Cancer</h5> <!-- Added a class sign-name-big -->
+    <p>Cancer individuals are nurturing and emotionally intuitive.</p>
+    <button onclick="showMore('cancer')" class="btn-read">Read More</button>
+    <div id="cancer" class="more-info" style="display:none">
+      <p>Cancer is a water sign ruled by the Moon, making them highly emotional and empathetic. They are nurturing and protective, often taking care of others. Cancer individuals are known for their strong emotional intuition and a deep connection to their family and home.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Leo Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9804;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Leo</h5> <!-- Added a class sign-name-big -->
+    <p>Leo individuals are charismatic and natural leaders.</p>
+    <button onclick="showMore('leo')" class="btn-read">Read More</button>
+    <div id="leo" class="more-info" style="display:none">
+      <p>Leo is a fire sign ruled by the Sun, making them charismatic and confident. They are natural leaders who enjoy the spotlight. Leos are known for their generous and warm-hearted nature, and they love to be admired and appreciated.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Virgo Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9805;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Virgo</h5> <!-- Added a class sign-name-big -->
+    <p>Virgo individuals are detail-oriented and practical.</p>
+    <button onclick="showMore('virgo')" class="btn-read">Read More</button>
+    <div id="virgo" class="more-info" style="display:none">
+      <p>Virgo is an earth sign ruled by Mercury, which makes them analytical and detail-oriented. They are practical problem solvers who pay close attention to the little things. Virgos are known for their cleanliness and organization.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Libra Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9806;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Libra</h5> <!-- Added a class sign-name-big -->
+    <p>Libra individuals are diplomatic and seek harmony.</p>
+    <button onclick="showMore('libra')" class="btn-read">Read More</button>
+    <div id="libra" class="more-info" style="display:none">
+      <p>Libra is an air sign ruled by Venus, making them lovers of beauty and harmony. They are diplomatic and seek balance in all aspects of life. Libras are known for their charm and their ability to bring people together.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Scorpio Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9807;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Scorpio</h5> <!-- Added a class sign-name-big -->
+    <p>Scorpio individuals are intense and mysterious.</p>
+    <button onclick="showMore('scorpio')" class="btn-read">Read More</button>
+    <div id="scorpio" class="more-info" style="display:none">
+      <p>Scorpio is a water sign ruled by Pluto and Mars, which makes them intense and powerful. They are known for their depth and mystique, often hiding their true feelings. Scorpios are passionate and have a strong desire for transformation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Sagittarius Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9808;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Sagittarius</h5> <!-- Added a class sign-name-big -->
+    <p>Sagittarius individuals are adventurous and free-spirited.</p>
+    <button onclick="showMore('sagittarius')" class="btn-read">Read More</button>
+    <div id="sagittarius" class="more-info" style="display:none">
+      <p>Sagittarius is a fire sign ruled by Jupiter, making them adventurous and optimistic. They have a love for exploration and a free-spirited nature. Sagittarians are known for their honesty and sense of humor.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Capricorn Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9809;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Capricorn</h5> <!-- Added a class sign-name-big -->
+    <p>Capricorn individuals are responsible and disciplined.</p>
+    <button onclick="showMore('capricorn')" class="btn-read">Read More</button>
+    <div id="capricorn" class="more-info" style="display:none">
+      <p>Capricorn is an earth sign ruled by Saturn, which makes them responsible and disciplined. They are hardworking and value tradition and structure. Capricorns are known for their ambition and determination.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Aquarius Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9810;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Aquarius</h5> <!-- Added a class sign-name-big -->
+    <p>Aquarius individuals are innovative and open-minded.</p>
+    <button onclick="showMore('aquarius')" class="btn-read">Read More</button>
+    <div id="aquarius" class="more-info" style="display:none">
+      <p>Aquarius is an air sign ruled by Uranus, making them innovative and open-minded. They have a strong sense of social justice and enjoy challenging the status quo. Aquarians are known for their unique ideas and desire for change.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Pisces Section -->
+<div class="col-md">
+  <div class="icon-box">
+    <p class="sign-icon-big">&#9811;</p> <!-- Added a class sign-icon-big -->
+    <h5 class="sign-name-big">Pisces</h5> <!-- Added a class sign-name-big -->
+    <p>Pisces individuals are compassionate and artistic.</p>
+    <button onclick="showMore('pisces')" class="btn-read">Read More</button>
+    <div id="pisces" class="more-info" style="display:none">
+      <p>Pisces is a water sign ruled by Neptune, making them dreamy and artistic. They are compassionate and often have a deep connection to the arts and spirituality. Pisceans are known for their empathy and their ability to see the world through a creative lens.</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  <script>
+    function showMore(sign) {
+      var info = document.getElementById(sign);
+      if (info.style.display === "none") {
+        info.style.display = "block";
+      } else {
+        info.style.display = "none";
+
+      }
+    }
+  </script>
+</body>
+</html>
+<script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings =
+            {"appId":"35d819c42b50559137c65e723b9a3c583","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.typ
+
+        e = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>

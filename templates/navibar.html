@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">Astrology</a>
+<!--        <a class="navbar-brand" href="/home">Home</a>-->
+        <a class="nav-link" href="/register"style="color:white;">Register</a>
+        <a class="nav-link" href="/login"style="color:white;">Login</a>
+        <a class="nav-link" href="/contact"style="color:white;">Contact Us</a>
+        {% if user.is_authenticated %}
+        {% endif %}
+    </div>
+</nav>
